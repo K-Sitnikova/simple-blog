@@ -5,5 +5,10 @@ export default defineNuxtConfig({
         'postcss-nested': {}
       },
   },
-    css: ['assets/style/index.css']
+    css: ['assets/style/index.css'],
+    router: {
+        options: {
+            scrollBehaviorType: 'smooth'
+        }
+    }
 })

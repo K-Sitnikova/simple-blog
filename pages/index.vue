@@ -1,22 +1,23 @@
-<script setup lang="ts">
+<script setup lang="ts" >
+definePageMeta({
+  layout: 'default'
+})
+const { data: posts } = await useFetch('https://dummyjson.com/posts')
 
-import Footer from "~/components/Footer.vue";
 </script>
 
 <template>
-  <div class="app__index">
-    <Header/>
-    <main class="container">
-      <div class="main">
-        <h1 class="main__title">Добро пожаловать в мой мини-блог</h1>
-        <p class="main__text">Здесь я буду публиковать статьи и маленькие заметки обо всем</p>
-      </div>
-      <section class="body">
-        <Card v-for="item in 6" key="id"/>
-      </section>
-    </main>
-    <Footer/>
-  </div>
+  <NuxtLayout>
+    <div class="main">
+      <h1 class="main__title">Добро пожаловать в мой мини-блог</h1>
+      <p class="main__text">Здесь я буду публиковать статьи и маленькие заметки обо всем</p>
+    </div>
+    <section class="body">
+      <nuxt-link v-for="item in posts?.posts" key="id" :to="`/article/${item.id}`">
+        <Card :title="item.title" :tags="item.tags"/>
+      </nuxt-link>
+    </section>
+  </NuxtLayout>
 </template>
 
 <style lang="postcss" scoped>
