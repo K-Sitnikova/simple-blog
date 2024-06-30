@@ -1,6 +1,6 @@
 <script setup lang="ts" >
 definePageMeta({
-  layout: 'default'
+  layout: 'desktop-default'
 })
 const { id } = useRoute().params
 const {data: post} = await useFetch(`https://dummyjson.com/posts/${id}`)

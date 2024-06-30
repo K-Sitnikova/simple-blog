@@ -18,7 +18,7 @@
 <template>
   <div class="card">
       <div class="card__image">
-        <img class="card__image-item"  src="https://img.freepik.com/free-photo/lovely-pet-portrait-isolated_23-2149192347.jpg?t=st=1717842397~exp=1717845997~hmac=928b5f937b8233ef3db377f304c29a1a2f9bcdb54907eb6bde2791cf26c906ac&w=740" alt="">
+        <img class="card__image-item"  src="/assets/img/humster.svg" alt="">
       </div>
       <h2 class="card__title">{{title}}</h2>
       <p class="card__description" v-for="tag in tags" key="id">{{tag}}</p>
@@ -38,6 +38,10 @@
       max-height: 20rem;
       max-width: 19.5rem;
       border-radius: .4rem;
+      -webkit-box-shadow: 1.3rem -0.8rem 1.3rem 0 #dda21c;
+      -moz-box-shadow: 1.3rem -0.8rem 1.3rem 0 #dda21c;
+      box-shadow: 1.3rem -0.8rem 1.3rem 0 #dda21c;
+      background-color: #c5d954;
         &-item {
           position: absolute;
           width: 100%;
@@ -48,12 +52,17 @@
           border-radius: .4rem;
           transition: 1s;
           &:hover {
-            -webkit-box-shadow: 1.3rem -0.8rem 1.3rem 0 #dda21c;
-            -moz-box-shadow: 1.3rem -0.8rem 1.3rem 0 #dda21c;
-            box-shadow: 1.3rem -0.8rem 1.3rem 0 #dda21c;
-            transform: scale(1.1);
+            -webkit-box-shadow: 1.3rem -0.8rem 1.3rem 0 #1c32dd;
+            -moz-box-shadow: 1.3rem -0.8rem 1.3rem 0 #1c32dd;
+            box-shadow: 1.3rem -0.8rem 1.3rem 0 #1c32dd;
           }
         }
+    }
+    &__title {
+      transition: 1s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 </style>

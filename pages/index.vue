@@ -1,8 +1,13 @@
-<script setup lang="ts" >
+<script setup lang="ts" async>
+import {useStore} from "~/store/posts";
+
 definePageMeta({
-  layout: 'default'
+  layout: 'desktop-default'
 })
-const { data: posts } = await useFetch('https://dummyjson.com/posts')
+
+const store = useStore();
+const posts = computed(() => store.posts);
+await useAsyncData(() => store.loadPostsList());
 
 </script>
 
@@ -13,7 +18,7 @@ const { data: posts } = await useFetch('https://dummyjson.com/posts')
       <p class="main__text">Здесь я буду публиковать статьи и маленькие заметки обо всем</p>
     </div>
     <section class="body">
-      <nuxt-link v-for="item in posts?.posts" key="id" :to="`/article/${item.id}`">
+      <nuxt-link v-for="item in posts" key="id" :to="`/article/${item.id}`">
         <Card :title="item.title" :tags="item.tags"/>
       </nuxt-link>
     </section>

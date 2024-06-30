@@ -1,5 +1,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
+    modules:[
+        '@pinia/nuxt',
+    ],
   postcss: {
       plugins: {
         'postcss-nested': {}
